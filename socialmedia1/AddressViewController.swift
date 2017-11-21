@@ -7,13 +7,16 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class AddressViewController: UIViewController {
+    
     @IBOutlet weak var textView: UITextView!
+    var ref:DatabaseReference?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        ref = Database.database().reference()
         // Do any additional setup after loading the view.
     }
 
@@ -23,6 +26,9 @@ class AddressViewController: UIViewController {
     }
     
     @IBAction func addEvent(_ sender: Any) {
+        //Like JSON-tree, setting a post under the name "Events"
+        //Set's value of the "event" to text inputted by user!
+        ref?.child("Events").childByAutoId().setValue(textView.text)
         presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
