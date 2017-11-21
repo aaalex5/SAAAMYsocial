@@ -8,5 +8,6 @@ target 'socialmedia1' do
   # Pods for socialmedia1
   pod 'Firebase/Core'
   pod 'Firebase/Database'
+  pod 'Firebase/Auth'
 
 end
